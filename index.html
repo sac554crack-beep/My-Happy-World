@@ -211,11 +211,10 @@
 
 
   <!-- Título en arco -->
-  <div class="arco">Jardín Infantil</div>
-  <div class="arco">My Happy World</div>
-
-  <!-- Logo -->
-  <img src="img/logo.png" alt="Logo del jardín" class="logo">
+  <div class="hero-header">
+    <img src="img/logo.png" alt="Logo del jardín" class="logo">
+    <div class="arco">Jardín Infantil<br>My Happy World</div>
+  </div>
 
   <!-- Información -->
   <div class="info">
@@ -242,8 +241,9 @@
 
   <!-- Modal de imágenes -->
   <div id="imageModal" class="image-modal">
-    <div class="image-modal-content" id="imageContainer">
+    <div class="image-modal-content">
       <button class="close-img-btn" onclick="closeImageModal()">×</button>
+      <div class="image-modal-scroll" id="imageContainer"></div>
     </div>
   </div>
   <!-- Script para mostrar imágenes -->
@@ -254,9 +254,9 @@
     // esos elementos en el HTML, así que ese código sobraba por completo.
 
     // ✅ Se mantiene igual: abre el modal genérico con una o más imágenes
-    function showImages(imagePaths) {
+        function showImages(imagePaths) {
       const container = document.getElementById("imageContainer");
-      container.innerHTML = '<button class="close-img-btn" onclick="closeImageModal()">×</button>';
+      container.innerHTML = "";
       imagePaths.forEach(path => {
         const img = document.createElement("img");
         img.src = path;
@@ -269,7 +269,6 @@
     function showUniformCollage() {
       const container = document.getElementById("imageContainer");
       container.innerHTML = `
-        <button class="close-img-btn" onclick="closeImageModal()">×</button>
         <div class="uniform-collage">
           <div class="uniform-half uniform-left" style="background-image:url('img/uniform.jpg')"></div>
           <div class="uniform-half uniform-right" style="background-image:url('img/uniform2.jpg')"></div>

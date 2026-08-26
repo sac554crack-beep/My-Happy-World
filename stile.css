@@ -17,8 +17,20 @@
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: linear-gradient(160deg, var(--color-cream) 0%, #FFF0F6 45%, #EAF6FF 100%);
+  background:
+    radial-gradient(circle at 8%  15%, rgba(54, 39, 95, 0.22), transparent 30%),
+    radial-gradient(circle at 92% 10%, rgba(255,79,163,0.22), transparent 30%),
+    radial-gradient(circle at 12% 88%, rgba(122,201,67,0.22), transparent 30%),
+    radial-gradient(circle at 90% 85%, rgba(41,171,226,0.22), transparent 30%),
+    linear-gradient(160deg, #FFF3D6 0%, #FFE8F0 50%, #E3F4FF 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
+}
+
+/* El fondo fijo se ve mejor en escritorio; en móvil "scroll" rinde más */
+@media (min-width: 768px) {
+  body { background-attachment: fixed; }
 }
 
 .info {
@@ -33,6 +45,86 @@ header {
   background: linear-gradient(120deg, var(--color-purple), var(--color-pink));
   color: white;
   padding: 20px;
+}
+
+/* ➕ NUEVO: agrupa logo + título como una sola unidad visual */
+.hero-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: 700px;   /* 🔑 evita que el flex se estire en pantallas grandes */
+  margin: 0 auto;      /* centra el bloque completo en la página */
+  padding: 28px 16px 6px;
+}
+.arco {
+  font-family: var(--font-title);
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.15;
+  display: inline-block;
+  transform: rotate(-3deg);
+  color: var(--color-purple);
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  /* ❌ quitar margin-top: 20px que tenía antes, ya lo controla .hero-header con gap */
+  margin: 0;
+  text-align: left;
+}
+.arco:hover { transform: rotate(0deg) scale(1.03); }
+
+.logo {
+  width: 110px;
+  /* ❌ quitar margin: 10px auto que tenía antes */
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+.logo:hover { transform: scale(1.08) rotate(-4deg); }
+
+.image-modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  max-width: 92%;
+  max-height: 90%;
+  overflow: hidden;         /* 🔑 esta caja ya NO scrollea */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* ➕ NUEVO: la caja que sí scrollea, separada del botón */
+.image-modal-scroll {
+  overflow: auto;
+  padding: 24px;
+  padding-top: 56px;        /* 🔑 deja espacio para que el botón nunca tape las fotos */
+}
+
+.close-img-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;                /* esquina superior izquierda, como pediste */
+  font-size: 22px;
+  background: var(--color-pink);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  z-index: 1101;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.close-img-btn:hover { transform: scale(1.1) rotate(90deg); background: var(--color-purple); }
+
+@media (max-width: 500px) {
+  .hero-header { flex-direction: column; padding-top: 20px; }
+  .arco { text-align: center; font-size: 1.8em; }
+}
+
+@media (min-width: 768px) {
+  .arco { font-size: 2.8em; }
 }
 
 h1 { margin: 0; font-family: var(--font-title); }
