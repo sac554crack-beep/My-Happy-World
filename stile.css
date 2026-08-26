@@ -1,60 +1,49 @@
-/* Estilos generales */
+/* Estilos generales — My Happy World */
+:root {
+  --color-purple: #7C4DFF;
+  --color-purple-dark: #5B2EBD;
+  --color-pink: #FF4FA3;
+  --color-blue: #29ABE2;
+  --color-green: #7AC943;
+  --color-yellow: #FFD23F;
+  --color-navy: #1B2A6B;
+  --color-cream: #FFF8ED;
+  --font-title: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: fantasy;
-  background-image: url("img/insta.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  font-family: var(--font-body);
+  background: linear-gradient(160deg, var(--color-cream) 0%, #FFF0F6 45%, #EAF6FF 100%);
+  min-height: 100vh;
 }
+
 .info {
-  background: rgba(255, 255, 255, 0.9); /* blanco semitransparente */
+  background: rgba(255, 255, 255, 0.92);
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-family: var(--font-body);
 }
+
 header {
-  background-color: #4caf50;
+  background: linear-gradient(120deg, var(--color-purple), var(--color-pink));
   color: white;
   padding: 20px;
 }
 
-h1 {
-  margin: 0;
-}
+h1 { margin: 0; font-family: var(--font-title); }
+main { padding: 20px; }
 
-main {
-  padding: 20px;
-}
+img, video { max-width: 100%; height: auto; }
 
-/* Imágenes y elementos multimedia se adaptan */
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Media Query para pantallas pequeñas (celulares) */
 @media (max-width: 600px) {
-  body {
-    font-size: 14px; /* texto más pequeño en móvil */
-    padding: 10px;
-    background-position: top;
-  }
-
-  header {
-    padding: 15px;
-  }
-
-  main {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
+  body { font-size: 14px; padding: 10px; }
+  header { padding: 15px; }
+  main { padding: 10px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
 }
