@@ -241,35 +241,7 @@
     const video = document.getElementById("promoVideo");
     const closeBtn = document.getElementById("closeModal");
     const soundBtn = document.getElementById("soundBtn");
-
-    // Mostrar modal y reproducir video después de 2 segundos
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        modal.style.display = "flex";
-        video.play().catch(err => {
-          console.log("El navegador bloqueó el autoplay:", err);
-        });
-      }, 2000);
-    });
-
-    // Activar sonido
-    soundBtn.addEventListener("click", () => {
-      video.muted = false;
-      video.play();
-      soundBtn.style.display = "none";
-    });
-
-    // Cerrar modal al terminar video
-    video.addEventListener("ended", () => {
-      modal.style.display = "none";
-      video.pause();
-    });
-
-    // Cerrar modal con la "X"
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-      video.pause();
-    });
+    
     function showImages(imagePaths) {
       const container = document.getElementById("imageContainer");
       container.innerHTML = '<button class="close-img-btn" onclick="closeImageModal()">×</button>';
